@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Login from './Login'
 import SelectAvatar from './SelectAvatar'
 import SelectRoom from './SelectRoom'
+import Confirm from './Confirm'
 
 export default class UserForm extends Component {
   constructor(props){
@@ -21,9 +22,26 @@ export default class UserForm extends Component {
           title: 'select chatroom'
         }
       ],
+      rooms: [
+        {
+          name: 'cool people only'
+        },
+        {
+          name: 'discussing rainbows'
+        },
+        {
+          name: 'make this app better'
+        }
+      ],
       userName: 'tam',
       chatroom: '',
       avatar: ''
+    }
+  }
+
+  componentDidUpdate(){
+    if(this.state.step === 5){
+      console.log('going to chatroom')
     }
   }
 
@@ -40,7 +58,7 @@ export default class UserForm extends Component {
 
   handleInput = input => e => {
     console.log(input)
-    console.log(e)
+    console.log(e.target.value)
 
     this.setState({
       [input]: e.target.value
@@ -71,10 +89,28 @@ export default class UserForm extends Component {
           update={this.updateFunctions} 
           step={this.state.step} 
           name={this.state.userName}
-          avatar={this.state.avatar}/>
+          avatar={this.state.avatar}
+          room={this.state.room}
+          rooms= {this.state.rooms}
+          />
+        )
+        break;
+      case 3:
+        return (
+          // <h1>helloooooo</h1>
+          <Confirm
+          update={this.updateFunctions} 
+          step={this.state.step} 
+          name={this.state.userName}
+          avatar={this.state.avatar}
+          room={this.state.chatroom}
+          />
         )
         break;
       default:
+        return(
+          <h1>error..</h1>
+        )
         break;
     }  
   }

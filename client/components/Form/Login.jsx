@@ -20,7 +20,7 @@ export default class Login extends Component {
             hintText='Enter your first name'
             floatingLabelText='first name'
             defaultValue={this.props.name}
-            onChange={this.props.update.update(this.props.name)}
+            onChange={this.props.update.update('userName')}
           />
           <RaisedButton 
             label='Next'
