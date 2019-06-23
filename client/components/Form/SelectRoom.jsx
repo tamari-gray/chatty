@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
+import { Link } from 'react-router-dom';
 export default class SelectRoom extends Component {
 
   next = (e) => {
@@ -19,7 +20,20 @@ export default class SelectRoom extends Component {
       <MuiThemeProvider>
         <>
           <AppBar title={'Select a chat room ' + this.props.name}/>
-          chatroom options
+          <ul style={{listStyleType: 'none'}}>
+            {
+              this.props.rooms.map(el => {
+                return ( 
+                  <Link key={el.name}>
+                    <li
+                    >
+                      {el.name}
+                    </li>
+                  </Link>
+                )
+              })
+            }
+          </ul>
           <RaisedButton 
             label='Back'
             primary={false}

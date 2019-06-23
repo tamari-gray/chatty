@@ -75,6 +75,7 @@ export default class UserForm extends Component {
         break;
       case 1:
         return (
+          
           <SelectAvatar 
             update={this.updateFunctions} 
             step={this.state.step} 

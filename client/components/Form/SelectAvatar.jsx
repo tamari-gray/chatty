@@ -19,7 +19,7 @@ export default class SelectAvatar extends Component {
       <MuiThemeProvider>
         <>
           <AppBar title={'Select your avatar ' + this.props.name}/> 
-          avatar optoions
+          avatar options
           <RaisedButton 
             label='Back'
             primary={false}

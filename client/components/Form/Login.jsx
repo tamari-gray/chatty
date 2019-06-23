@@ -19,7 +19,7 @@ export default class Login extends Component {
           <TextField 
             hintText='Enter your first name'
             floatingLabelText='first name'
-            defaultValue={this.props.name}
+            label="name"
             onChange={this.props.update.update('userName')}
           />
           <RaisedButton 
