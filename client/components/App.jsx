@@ -1,8 +1,18 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
+
+import UserForm from './Form/UserForm'
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <>
+      <Route path='/' render={() =>
+        <UserForm/>
+      }/>
+      <Route path='/:userId/:roomId' render={({match}) =>
+        <Chatroom match={match}/>
+      }/>
+    </>
   )
 }
 
